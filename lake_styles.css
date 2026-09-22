@@ -1,0 +1,201 @@
+﻿@charset "utf-8";
+/*
+   New Perspectives on HTML5 and CSS3, 7th Edition
+   Tutorial 2
+   Case Problem 4
+
+   The Great Lakescape Lodge Color & Typography Styles
+   Filename: lake_styles.css
+*/
+
+/* ========== Font Definitions (3.b Web Font: 2 ttf + 2 woff) ========== */
+@font-face {
+    font-family: "LodgeScript";
+    src: url("./cac_champagne.woff") format("woff"),
+         url("./cac_champagne.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: "LodgeSans";
+    src: url("LodgeSans-Regular.woff") format("woff"),
+         url("LodgeSans-Regular.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* ========== Structural Styles ========== */
+body {
+    /* 3.c: RGB 颜色值 + 十六进制颜色值 */
+    background-color: rgb(183, 218, 27);   /* RGB 函数值 */
+    color: #fdfdfb;                        /* 十六进制值 */
+    font-family: "LodgeSans";
+    /* 3.h margin padding box-model */
+    margin: 0px auto;
+    padding: 15px;
+    line-height: 1.6;
+    /* 3.k Grid 两栏布局 */
+    display: grid;
+    grid-template-columns: 70% 30%;
+}
+body > header {
+    /* 3.d semi-transparent colour 半透明rgba */
+    grid-column: 1 / -1;            /* 横跨两列 */
+    background-color: rgba(159, 92, 183, 0.75);
+    padding: 0px;
+    margin: 0px;
+}
+body > header > img {
+    display: block;
+    width: 100%;
+    margin: 0;
+}
+body > footer {
+    grid-column: 1 / -1;            /* 横跨两列 */
+    background-color: #464951;
+    color: ivory;
+    text-align: center;     /* 文字居中 */
+    font-size: 1em;
+}
+
+/* ========== Header & Page Headings ========== */
+h1, h2, h3 {
+    font-family: "LodgeScript", cursive;
+    font-weight: normal;
+    color: #ffd700;
+    margin: 0;
+}
+/* aside 内标题用白色，不用金色 */
+section#leftcol aside h1,
+section#leftcol aside h2,
+section#leftcol aside h3 {
+    color: #ffffff;
+}
+/* 单独给左侧 Welcome h1 更大字号 */
+section#leftcol h1 {
+    font-size: 2.8em;
+}
+/* aside 内标题字号压小，避免和主标题一样大 */
+section#leftcol aside h1 {
+    font-size: 1.8em;
+}
+
+/* ========== Navigation Styles ========== */
+header > nav {
+    /* 3.j Flexbox layout */
+    display: flex;
+}
+header > nav > ul {
+    display: flex;
+    flex: 1;
+    justify-content: center;   /* 整行菜单居中 */
+    gap: 24px;                 /* 菜单项之间留出空隙 */
+    list-style: none;          /* 去掉左侧圆点 */
+    margin: 0;
+    padding: 0;
+}
+header > nav a {
+    color: #ffe4c4;
+    text-decoration: none;
+    /* 3.h padding margin */
+    padding: 8px 6px;
+}
+
+/* ========== 3.e Nested, Child, ID selectors ========== */
+/* ID selector #leftcol */
+section#leftcol {
+    background-color: #0a090b;
+    /* 列宽由 body 的 grid-template-columns 控制，无需 float/width */
+}
+/* Descendant(nested) selector 后代嵌套 */
+section#leftcol p {
+    margin-bottom: 12px;
+}
+section#leftcol aside {
+    width: 42%;
+    float: left;
+    margin-left: 2.5%;
+    margin-right: 2.5%;
+    margin-bottom: 20px;
+    padding: 15px;
+    box-sizing: border-box;
+}
+/* Notes 盒子（第一个）：鲑鱼粉/陶土色 */
+section#leftcol aside:first-of-type {
+    background-color: #d4956b;
+}
+section#leftcol aside:first-of-type a {
+    color: #f0a0d8;
+}
+/* Upcoming Events 盒子（第二个）：金棕色 */
+section#leftcol aside:last-of-type {
+    background-color: #c9a85c;
+}
+
+/* ========== Right Column (右侧侧边栏 The Lodge / Information / Door County) ========== */
+section#rightcol {
+    background-color: #591c7c;
+    color: white;
+    /* 列宽由 body 的 grid-template-columns 控制，无需 float/width */
+}
+/* 右侧栏的标题 The Lodge、Information、Door County */
+section#rightcol h2 {
+    font-family: "LodgeScript", cursive;
+    font-size: 2em;
+    color: #ffd700;
+    margin: 10px 0;
+    font-weight: normal;
+}
+/* 右侧列表 */
+section#rightcol ul {
+    padding-left: 20px;
+    margin: 8px 0 25px 0;
+}
+section#rightcol li {
+    margin: 6px 0;
+}
+section#rightcol a {
+    color: #ffffcc;
+    text-decoration: none;
+}
+section#rightcol a:hover {
+    color: white;
+    text-decoration: underline;
+}
+/* 右下角引用块 */
+section#rightcol blockquote {
+    margin: 20px 0 0 0;
+    border-radius: 3px;
+    font-style: italic;
+    padding: 14px;
+    color: #efdaef;
+}
+
+/* ========== 3.f List styling & list markers ========== */
+ul.eventList li {
+    margin: 0;
+}
+
+/* ========== 3.g Pseudo-classes & Pseudo-elements ========== */
+/* Pseudo-classes 伪类 */
+nav a:link {
+    color: #ffe4c4;
+}
+nav a:visited {
+    color: #d8b2d1;
+}
+nav a:hover {
+    background-color: #5c3463;
+}
+/* Pseudo-elements ::first-letter */
+article::first-letter {
+    font-family: "LodgeScript", cursive;
+    font-size: 200%;
+}
+
+/* ========== 3.i Generate content with content property ========== */
+section#rightcol blockquote::after {
+    color: #ffd700;
+    font-size: 1.4em;
+    margin-left: 4px;
+}
